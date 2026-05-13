@@ -27,6 +27,9 @@ def on_click():
     short_url = shorten_url(long_url)
     result_label.config(text=short_url)
     copy_button.config(text="Copy URL")
+    if "❌" not in short_url:
+        with open("links.txt", "a") as file:
+            file.write(short_url + "\n")
 
 def copy_to_clipboard():
     window.clipboard_clear()
